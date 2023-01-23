@@ -6,6 +6,7 @@ import { AuthContext, ctx } from '../Constants/Context';
 import SpalashScreen from '../Screen/SpalashScreen/SpalashScreen';
 import LogIn from '../Screen/AuthPage/LogIn';
 import home from '../Screen/App/Home/home';
+import Receivers_Details from "../Screen/App/Notification Receiver's Details/Receiver's_Details";
 
 //Screens
 
@@ -32,13 +33,14 @@ export default function Navigation() {
 
   return (
     <NavigationContainer>
-      {State.isLoadingComplete === true ? (
+      {/* {State.isLoadingComplete === true ? (
         <SpalashScreen />
       ) : State.userToken === null ? (
         <AuthStack />
       ) : (
         <AppPage />
-      )}
+      )} */}
+      <Receivers_Details />
     </NavigationContainer>
   );
 }
