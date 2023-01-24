@@ -5,6 +5,7 @@ interface Props {
   placeholder: string;
   onChangeText: (text: string) => void;
   value: string;
+  Keyboard: number;
   secureTextEntry?: boolean;
 }
 
@@ -29,9 +30,10 @@ const TextInputForm: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    margin: 10,
+    borderWidth: 1,
+    borderColor: '#2EC331',
+    borderRadius: 10,
   },
   input: {
     height: 40,

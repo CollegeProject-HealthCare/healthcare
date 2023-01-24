@@ -19,18 +19,17 @@ const Card: React.FC<Props> = ({ title, subtitle, style }) => {
 const styles = StyleSheet.create({
   cardContainer: {
     padding: 20,
-    borderRadius: 10,
     backgroundColor: '#FFFFFF',
     elevation: 3,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
+    color: '#2EC331',
   },
   subtitle: {
     fontSize: 14,
-    color: 'gray',
+    color: '#2EC331',
   },
 });
 
