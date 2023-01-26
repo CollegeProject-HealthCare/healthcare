@@ -67,4 +67,5 @@ export const Fonts = {
   Sevillana: 'Sevillana-Regular',
   DMSans: 'DMSans-Regular',
   Poppins: 'Poppins-Black',
+  Abril: 'AbrilFatface-Regular',
 };
