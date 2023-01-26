@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import {
+  Image,
   KeyboardAvoidingView,
   Keyboard,
   StyleSheet,
   Text,
-  View,
-  Image,
   TouchableOpacity,
   TextInput,
+  View,
 } from 'react-native';
+
 import { Button } from '../../Components/Button';
-import { Colors, setWidth, setHeight, Images } from '../../Components/Theme';
+import Separator from '../../Components/Separator';
+import { Colors, setWidth, setHeight, Images, Fonts } from '../../Components/Theme';
 
 const NumberVerification = () => {
   const [mobileNumber, setmobileNumber] = useState('');
@@ -32,57 +34,60 @@ const NumberVerification = () => {
   }
 
   return (
-    <View>
-      <Text style={styles1.primaryText}>Enter Your Mobile Number</Text>
-      <View style={styles1.inputsContainer}>
+    <>
+      <View style={NumberVerificationStyle.inputsContainer}>
+        <Text style={NumberVerificationStyle.primaryText}>Enter Your Mobile Number</Text>
+        <Separator height={setHeight(2)} />
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity style={styles1.countryListContainer}>
-            <Image style={styles1.image} source={Images.IndianFlag} />
-            <Text style={styles1.countryCodeText}>{'+91'}</Text>
+          <TouchableOpacity style={NumberVerificationStyle.countryListContainer}>
+            <Image style={NumberVerificationStyle.image} source={Images.IndianFlag} />
+            <Text style={NumberVerificationStyle.countryCodeText}>{'+91'}</Text>
           </TouchableOpacity>
-          <View style={styles1.phoneInputContainer}>
+          <View style={NumberVerificationStyle.phoneInputContainer}>
             <TextInput
               maxLength={10}
               placeholder='Phone Number'
               placeholderTextColor={Colors.DEFAULT_GREY}
               selectionColor={Colors.DEFAULT_GREY}
               keyboardType='number-pad'
-              style={styles1.inputText}
+              style={NumberVerificationStyle.inputText}
               onChangeText={onChangeHandler}
               value={mobileNumber}
             />
           </View>
         </View>
-        <Text style={styles1.verificationText}>
+        <Separator height={setHeight(1)} />
+        <Text style={NumberVerificationStyle.verificationText}>
           {mobileNumber.length !== 0 ? (isValidNumberFlag ? '' : 'Invalid') : null}
         </Text>
       </View>
       <Button
-        text='Save Changes'
+        text='Next'
         height={setHeight(6)}
-        width={setWidth(43)}
+        width={setWidth(70)}
         color={Colors.buttonGreen}
         textColor={Colors.white}
+        textFontSize={setHeight(2.3)}
       />
-    </View>
+    </>
   );
 };
 
-const styles1 = StyleSheet.create({
+const NumberVerificationStyle = StyleSheet.create({
   primaryText: {
     color: Colors.textColor,
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontFamily: Fonts.Poppins,
   },
   inputsContainer: {
     alignItems: 'center',
     flexDirection: 'column',
-    marginVertical: '5%',
+    marginVertical: setHeight(2),
   },
   countryListContainer: {
     backgroundColor: Colors.LIGHT_GREY,
-    width: setWidth(22),
-    marginRight: 5,
+    width: setWidth(20),
+    marginRight: setWidth(1.5),
     borderRadius: 8,
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -90,8 +95,8 @@ const styles1 = StyleSheet.create({
     flexDirection: 'row',
   },
   image: {
-    height: 35,
-    width: 30,
+    height: setHeight(4),
+    width: setWidth(7),
     borderRadius: 50,
   },
   countryCodeText: {
@@ -102,8 +107,8 @@ const styles1 = StyleSheet.create({
     backgroundColor: Colors.LIGHT_GREY,
     borderRadius: 8,
     borderColor: Colors.LIGHT_GREY2,
-    width: '70%',
-    height: '100%',
+    width: setWidth(65),
+    height: setHeight(6),
   },
   inputText: {
     fontSize: 18,
@@ -118,6 +123,7 @@ const styles1 = StyleSheet.create({
   },
 });
 
+/**Login Page Code */
 const LoginSignupScreen = () => {
   const [didKeyboardShow, setKeyboardShow] = useState<boolean>(true);
 
@@ -144,27 +150,33 @@ const LoginSignupScreen = () => {
     <View style={styles.container}>
       {didKeyboardShow ? (
         <KeyboardAvoidingView style={styles.header} behavior='padding'>
-          <Image source={Images.appLogo} style={styles.logo1} />
+          <Separator height={setHeight(4)} />
+          <Image source={Images.handymanImg} style={styles.logo1} />
+          <Separator height={setHeight(5)} />
           <View style={styles.textFlex}>
-            <Text style={[styles.primaryText, styles.mainText]}>Save Life With</Text>
-            <Text style={styles.primaryText}>Digital Help</Text>
+            <Text style={styles.textStyle}>Save Life With</Text>
+            <Separator height={setHeight(1)} />
+            <Text style={styles.textStyle}>Digital Help</Text>
           </View>
         </KeyboardAvoidingView>
       ) : (
         <View style={styles2.header}>
-          <Image source={Images.appLogo} style={styles2.logo1} />
+          <Separator height={setHeight(4)} />
+          <Image source={Images.handymanImg} style={styles2.logo1} />
+          <Separator height={setHeight(4)} />
+
           <View style={styles2.textFlex}>
-            <Text style={[styles2.primaryText, styles2.mainText]}>Save Life With</Text>
-            <Text style={styles.primaryText}>Digital Help</Text>
+            <Text style={styles2.textStyle}>Save Life With</Text>
+            <Separator height={setHeight(1)} />
+            <Text style={styles2.textStyle}>Digital Help</Text>
           </View>
         </View>
       )}
-
+      <Separator height={setHeight(6)} />
       <NumberVerification />
     </View>
   );
 };
-
 export default LoginSignupScreen;
 
 const styles = StyleSheet.create({
@@ -173,60 +185,42 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroudColor,
   },
   header: {
-    // flex: 3,
-    // justifyContent: 'space-around',
     alignItems: 'center',
   },
   logo1: {
-    marginTop: '7%',
-    height: setHeight(18),
-    width: setWidth(60),
+    height: setHeight(30),
+    width: setWidth(65),
   },
   textFlex: {
-    display: 'flex',
     alignItems: 'center',
   },
-  mainText: {
-    color: Colors.DEFAULT_GREEN,
-    fontWeight: 'bold',
-    marginBottom: setHeight(2),
-  },
-  primaryText: {
-    color: 'black',
-    fontSize: 18,
-    letterSpacing: 0.5,
+  textStyle: {
+    color: Colors.textColor,
+    fontFamily: Fonts.Sevillana,
+    fontSize: 30,
+    letterSpacing: 1,
   },
 });
 
 const styles2 = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.LIGHT_GREY2,
+    backgroundColor: Colors.backgroudColor,
   },
   header: {
-    flex: 3,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
   },
   logo1: {
-    marginTop: '5%',
-    marginBottom: '3%',
-    height: setHeight(13),
-    width: setWidth(40),
+    height: setHeight(20),
+    width: setWidth(45),
   },
   textFlex: {
-    display: 'flex',
     alignItems: 'center',
   },
-  mainText: {
-    color: 'grey',
-    fontSize: 15,
-    marginBottom: setHeight(1),
-  },
-  primaryText: {
-    color: Colors.black,
-    fontSize: 12,
-    letterSpacing: 0.5,
+  textStyle: {
+    color: Colors.textColor,
+    fontFamily: Fonts.Sevillana,
+    fontSize: 30,
+    letterSpacing: 1,
   },
 });

@@ -2,12 +2,12 @@ import { Dimensions, PixelRatio } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-const setWidth = (number: any) => {
+const setWidth = (number: number) => {
   let givenWidth = typeof number === 'number' ? number : parseFloat(number);
   return PixelRatio.roundToNearestPixel((width * givenWidth) / 100);
 };
 
-const setHeight = (number: any) => {
+const setHeight = (number: number) => {
   let givenHeight = typeof number === 'number' ? number : parseFloat(number);
   return PixelRatio.roundToNearestPixel((height * givenHeight) / 100);
 };
@@ -58,4 +58,11 @@ export const Images = {
   splashScreenImage: require('../Assets/Images/settings.png'),
   appLogo: require('../Assets/Images/logo.png'),
   IndianFlag: require('../Assets/Images/india.png'),
+  handymanImg: require('../Assets/Images/handymanImg.png'),
+};
+
+export const Fonts = {
+  Sevillana: 'Sevillana-Regular',
+  DMSans: 'DMSans-Regular',
+  Poppins: 'Poppins-Black',
 };

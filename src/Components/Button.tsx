@@ -1,7 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, ColorValue } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import { Images, Colors, setHeight, setWidth } from './Theme';
+import { Colors, Fonts, setHeight, setWidth } from './Theme';
 
 interface ButtonProps {
   color?: string;
@@ -49,28 +49,15 @@ export const Button = ({
       borderWidth: borderWidth ? borderWidth : null,
       borderColor: borderColor ? borderColor : null,
     },
-    shadowEffwct: {
-      shadowColor: 'red' ? color : 'transparent',
-      shadowOffset: {
-        width: 0,
-        height: 5,
-      },
-      shadowOpacity: 0.51,
-      shadowRadius: 10,
-      elevation: 15,
-      backgroundColor: color ? color : 'transparent',
-    },
     text: {
       color: textColor ? textColor : '#fff',
       fontSize: textFontSize ? textFontSize : setWidth(4.4),
+      fontFamily: textFontFamily ? textFontFamily : Fonts.Poppins,
     },
   });
 
   return (
-    <TouchableOpacity
-      disabled={disabled}
-      style={[styles.container, shadow ? styles.shadowEffwct : null]}
-      onPress={onPress}>
+    <TouchableOpacity disabled={disabled} style={styles.container} onPress={onPress}>
       {text && <Text style={styles.text}>{text || 'Button'}</Text>}
     </TouchableOpacity>
   );
