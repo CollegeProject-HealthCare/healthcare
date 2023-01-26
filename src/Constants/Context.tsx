@@ -1,7 +1,7 @@
 //This Component is created to avoid require cycle error
 
 import { createContext } from 'react';
-import { GlobalStateType, userProfile } from '../ApState/AppState';
+import { GlobalStateType, userProfile } from '../AppState/AppState';
 
 export interface ctx {
   signIn: (userToken: string, userProfile: userProfile) => Promise<void>;

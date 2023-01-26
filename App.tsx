@@ -1,10 +1,13 @@
 import React from 'react';
 import { StatusBar, useColorScheme, View, Text, ActivityIndicator } from 'react-native';
-import AppState from './src/ApState/AppState';
+import AppState from './src/AppState/AppState';
 import { Colors } from './src/Components/Theme';
 import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
+import LogIn from './src/Screen/AuthPage/LogIn';
+import Accelerometer from './src/Sensors/Accelerometer';
+import Gyroscope from './src/Sensors/Gyroscope';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -22,19 +25,9 @@ const App = () => {
 
   return (
     <>
-      <StatusBar
-        barStyle='light-content'
-        hidden={false}
-        backgroundColor={Colors.LIGHT_GREY}
-        translucent={false}
-      />
-      <AuthContext.Provider
-        value={{
-          State,
-          ...Dispatchers,
-        }}>
-        <Navigation />
-      </AuthContext.Provider>
+      {/* <Accelerometer />
+      <Gyroscope /> */}
+      <LogIn />
     </>
   );
 };
