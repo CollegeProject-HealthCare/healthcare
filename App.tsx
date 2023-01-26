@@ -6,6 +6,7 @@ import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
 import LogIn from './src/Screen/AuthPage/LogIn';
+import OtpVerification from './src/Screen/AuthPage/OtpVerification';
 import Accelerometer from './src/Sensors/Accelerometer';
 import Gyroscope from './src/Sensors/Gyroscope';
 
@@ -27,7 +28,8 @@ const App = () => {
     <>
       {/* <Accelerometer />
       <Gyroscope /> */}
-      <LogIn />
+      {/* <LogIn /> */}
+      <OtpVerification />
     </>
   );
 };
