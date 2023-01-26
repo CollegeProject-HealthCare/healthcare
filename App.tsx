@@ -13,7 +13,7 @@ const App = () => {
 
   if (State.isLoadingComplete) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size='large' color='#35B2E6' />
         <Text>Loading.....</Text>
       </View>
