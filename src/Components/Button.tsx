@@ -1,77 +1,46 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, ColorValue } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { Colors, setHeight, setWidth } from './Theme';
 
-import { Images, Colors, setHeight, setWidth } from './Theme';
-
-interface ButtonProps {
-  color?: string;
+export interface ButtonData {
   text: string;
-  width: number;
-  height: number;
-  borderRadius?: number;
+  width?: number;
+  height?: number;
+  fontSize?: number;
+  marginTop?: number;
+  marginLeft?: number;
   textColor?: string;
-  textFontSize?: number;
-  textFontFamily?: string;
-  shadow?: string;
-  borderWidth?: any;
-  borderColor?: any | undefined;
-  onPress?: any;
-  alignSelf?: any;
-  disabled?: boolean;
+  buttonColor?: string;
 }
 
-export const Button = ({
-  disabled = false,
-  color,
-  text,
-  borderWidth,
-  borderColor,
-  textFontSize,
-  textFontFamily,
-  textColor,
-  borderRadius,
-  width,
-  height,
-  shadow,
-  onPress,
-  alignSelf = 'center',
-}: ButtonProps) => {
+function Button({ text, width, height, fontSize, marginTop, marginLeft, textColor, buttonColor }: ButtonData) {
+  
   const styles = StyleSheet.create({
-    container: {
-      width: width ? width : setWidth(90),
-      height: height ? height : setHeight(6.3),
-      backgroundColor: disabled ? Colors.black : color ? color : Colors.black,
+    buttonStyle: {
+      flexDirection: 'row',
+      marginTop: marginTop? setWidth(marginTop) : setWidth(0),
+      marginLeft: marginLeft? setWidth(marginLeft) : setWidth(0),
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'row',
-      borderRadius: borderRadius ? borderRadius : setWidth(3),
-      alignSelf: alignSelf,
-      borderWidth: borderWidth ? borderWidth : null,
-      borderColor: borderColor ? borderColor : null,
+      width: width ? setWidth(width) : setWidth(35),
+      height: height ? setHeight(height) : setHeight(5),
+      backgroundColor: buttonColor ? buttonColor : Colors.SECONDARY_GREEN,
+      borderRadius: 8,
     },
-    shadowEffwct: {
-      shadowColor: 'red' ? color : 'transparent',
-      shadowOffset: {
-        width: 0,
-        height: 5,
-      },
-      shadowOpacity: 0.51,
-      shadowRadius: 10,
-      elevation: 15,
-      backgroundColor: color ? color : 'transparent',
-    },
-    text: {
-      color: textColor ? textColor : '#fff',
-      fontSize: textFontSize ? textFontSize : setWidth(4.4),
+  
+    buttonTextStyle: {
+      color: textColor ? textColor : Colors.DEFAULT_WHITE,
+      fontWeight: 'bold',
+      fontSize: fontSize ? setWidth(fontSize) : setWidth(5),
+      fontFamily: 'Pass through',
     },
   });
 
   return (
-    <TouchableOpacity
-      disabled={disabled}
-      style={[styles.container, shadow ? styles.shadowEffwct : null]}
-      onPress={onPress}>
-      {text && <Text style={styles.text}>{text || 'Button'}</Text>}
-    </TouchableOpacity>
+    <View style={styles.buttonStyle}>
+      <Text style={styles.buttonTextStyle}>{text}</Text>
+    </View>
   );
-};
+}
+
+export default Button;
