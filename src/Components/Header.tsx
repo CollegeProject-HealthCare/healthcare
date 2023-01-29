@@ -1,4 +1,3 @@
-// this is header component.
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { Colors, setHeight, setWidth } from './Theme';

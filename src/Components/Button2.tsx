@@ -1,3 +1,4 @@
+// this is another button component.
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors, setHeight, setWidth } from './Theme';
