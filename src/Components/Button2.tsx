@@ -13,6 +13,7 @@ export interface ButtonData {
   buttonColor?: string;
 }
 
+
 function Button({ text, width, height, fontSize, marginTop, marginLeft, textColor, buttonColor }: ButtonData) {
   
   const styles = StyleSheet.create({
