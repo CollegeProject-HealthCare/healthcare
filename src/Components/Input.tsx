@@ -27,7 +27,8 @@ interface InputData {
   maxlength?: number;
   hidePass?: any;
   setHidePass?: any;
-  editable: boolean;
+  editable?: boolean;
+  backgroundColor?: string;
 }
 
 function Input({
@@ -53,6 +54,7 @@ function Input({
   hidePass,
   setHidePass,
   editable,
+  backgroundColor,
 }: InputData) {
   const showHidePass = (val: boolean) => {
     setHidePass(!val);
@@ -66,7 +68,7 @@ function Input({
   return (
     <View
       style={{
-        backgroundColor: 'white',
+        backgroundColor: backgroundColor ?? Colors.white,
         height: height,
         width: width,
         borderColor: borderColor,
@@ -107,7 +109,7 @@ function Input({
         value={value}
         maxLength={maxlength}
         onChangeText={onChangeText}
-        editable={editable ? editable : true}
+        editable={editable ? true : editable}
       />
       {rightImage ? (
         <TouchableOpacity
