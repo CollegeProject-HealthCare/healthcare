@@ -151,7 +151,7 @@ const LoginSignupScreen = () => {
       {didKeyboardShow ? (
         <KeyboardAvoidingView style={styles.header} behavior='padding'>
           <Separator height={setHeight(4)} />
-          <Image source={Images.handymanImg} style={styles.logo1} />
+          <Image source={Images.AppLogo} style={styles.logo1} />
           <Separator height={setHeight(5)} />
           <View style={styles.textFlex}>
             <Text style={styles.textStyle}>Save Life With</Text>
@@ -162,7 +162,7 @@ const LoginSignupScreen = () => {
       ) : (
         <View style={styles2.header}>
           <Separator height={setHeight(4)} />
-          <Image source={Images.handymanImg} style={styles2.logo1} />
+          <Image source={Images.AppLogo} style={styles2.logo1} />
           <Separator height={setHeight(4)} />
 
           <View style={styles2.textFlex}>
@@ -188,8 +188,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo1: {
-    height: setHeight(30),
-    width: setWidth(65),
+    height: setHeight(35),
+    width: setWidth(70),
+    tintColor: Colors.buttonGreen,
   },
   textFlex: {
     alignItems: 'center',
@@ -213,6 +214,7 @@ const styles2 = StyleSheet.create({
   logo1: {
     height: setHeight(20),
     width: setWidth(45),
+    tintColor: Colors.buttonGreen,
   },
   textFlex: {
     alignItems: 'center',

@@ -18,7 +18,6 @@ export const Colors = {
   black: '#333',
   white: '#FFFFFF',
   red: '#E63950',
-  green: '#4CB452',
   brown: '#C29431',
   grey: '#222222',
   yellow: '#FFB300',
@@ -52,6 +51,8 @@ export const Colors = {
   lightGrey: '#D9D9D9',
   darkGrey: '#C4C4C4',
   backgroudColor: '#E5E5E5',
+  AppGreen: '2EC331',
+  LightGreen: '2CC070',
 };
 
 export const Images = {
@@ -59,6 +60,7 @@ export const Images = {
   appLogo: require('../Assets/Images/logo.png'),
   IndianFlag: require('../Assets/Images/india.png'),
   handymanImg: require('../Assets/Images/handymanImg.png'),
+  AppLogo: require('../Assets/Images/app.png'),
 };
 
 export const Fonts = {
