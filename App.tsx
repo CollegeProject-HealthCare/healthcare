@@ -5,7 +5,7 @@ import { Colors } from './src/Components/Theme';
 import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
-import Home from './src/Screen/App/Home/home';
+import Profile from './src/Profile/Profile';
 import LogIn from './src/Screen/AuthPage/LogIn';
 import OtpVerification from './src/Screen/AuthPage/OtpVerification';
 import Accelerometer from './src/Sensors/Accelerometer';
@@ -31,8 +31,7 @@ const App = () => {
       <Gyroscope /> */}
       {/* <LogIn /> */}
       {/* <OtpVerification /> */}
-      <Home />
-      {/* <NewApp /> */}
+      <Profile />
     </>
   );
 };
