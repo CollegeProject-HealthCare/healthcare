@@ -1,29 +1,71 @@
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import Header from '../../../Components/Header';
-import { setWidth } from '../../../Components/Theme';
+import { Colors, Fonts, Images, setHeight, setWidth } from '../../../Components/Theme';
+import Separator from '../../../Components/Separator';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const Profile = () => {
   return (
     <>
-      <Header text='Alert-e' />
-      <View style={[styles.card, styles.shadow]}>
-        <View>
-          <Text>Pritom Rahaman</Text>
-          <Text> +91 8900920011</Text>
-          <Text>Male , 45 </Text>
+      <View
+        style={{
+          backgroundColor: Colors.backgroudColor,
+          width: setWidth(100),
+          height: setHeight(100),
+        }}>
+        <Header text='Alert-e' fontSize={8} />
+        <Separator height={25} />
+        <TouchableOpacity
+          style={{
+            height: setHeight(18),
+            width: setWidth(40),
+            borderRadius: 100,
+            backgroundColor: Colors.DEFAULT_WHITE,
+            alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'center',
+          }}>
+          {'ss' === undefined ? (
+            <Image source={Images.AppLogo} style={{ width: setWidth(40), height: setHeight(18) }} />
+          ) : (
+            <Image
+              source={Images.appLogo}
+              style={{ width: setWidth(40), height: setHeight(18) }}
+              resizeMode={'cover'}
+            />
+          )}
+        </TouchableOpacity>
+        <Separator height={25} />
+        <View style={[styles.card, styles.shadow]}>
+          <View style={{ alignItems: 'center' }}>
+            <Text style={{ color: Colors.buttonGreen, fontSize: 25 }}>Pritom Rahaman</Text>
+            <Separator height={10} />
+            <Text style={{ color: Colors.buttonGreen, fontSize: 18 }}> +91 8900920011</Text>
+            <Separator height={10} />
+            <Text style={{ color: Colors.buttonGreen, fontSize: 20 }}>Male , 45 </Text>
+          </View>
         </View>
-      </View>
-      <View>
-        <TouchableOpacity>
-          <Text>Edit Details</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text>Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text>Logout</Text>
-        </TouchableOpacity>
+        <View
+          style={{
+            padding: 20,
+          }}>
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <FontAwesome5 name='edit' size={35} color={Colors.buttonGreen} />
+            <Text style={styles.textStyle}>Edit Details</Text>
+          </TouchableOpacity>
+          <Separator height={25} />
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <FontAwesome5 name='cog' size={35} color={Colors.buttonGreen} />
+            <Text style={styles.textStyle}>Settings</Text>
+          </TouchableOpacity>
+          <Separator height={25} />
+          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Entypo name='log-out' size={35} color={Colors.buttonGreen} />
+            <Text style={styles.textStyle}>Logout</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </>
   );
@@ -33,19 +75,29 @@ export default Profile;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
-    width: setWidth(80),
+    backgroundColor: Colors.DEFAULT_WHITE,
+    width: setWidth(90),
+    height: setHeight(20),
     marginBottom: 10,
+    alignSelf: 'center',
+    borderRadius: 15,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   shadow: {
-    shadowColor: '#000',
+    shadowColor: Colors.black,
     shadowOffset: {
-      width: 0,
+      width: 1,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.5,
     shadowRadius: 10,
-    elevation: 5,
+    elevation: 10,
+  },
+  textStyle: {
+    color: Colors.buttonGreen,
+    marginLeft: 10,
+    fontSize: 25,
+    fontFamily: Fonts.DMSans,
   },
 });

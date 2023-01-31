@@ -51,7 +51,6 @@ export const Colors = {
   lightGrey: '#D9D9D9',
   darkGrey: '#C4C4C4',
   backgroudColor: '#E5E5E5',
-  AppGreen: '2EC331',
   LightGreen: '2CC070',
 };
 

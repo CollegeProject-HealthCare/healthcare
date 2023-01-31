@@ -13,7 +13,7 @@ function Header({ text, fontSize, textColor, bodyColor }: HeaderData) {
   const style = StyleSheet.create({
     container: {
       width: setWidth(100),
-      height: setHeight(6),
+      height: setHeight(8),
       backgroundColor: bodyColor ? bodyColor : Colors.DEFAULT_WHITE,
       alignItems: 'center',
       justifyContent: 'center',
