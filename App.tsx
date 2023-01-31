@@ -6,6 +6,7 @@ import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
 import Home from './src/Screen/App/Home/home';
+import EditDetails from './src/Screen/App/Profile/EditDetails';
 import Profile from './src/Screen/App/Profile/profle';
 import Profle from './src/Screen/App/Profile/profle';
 import Settings from './src/Screen/App/Setting/Setting';
@@ -35,8 +36,9 @@ const App = () => {
       {/* <LogIn /> */}
       {/* <OtpVerification /> */}
       {/* <Home /> */}
-      <Profile />
+      {/* <Profile /> */}
       {/* <Settings /> */}
+      <EditDetails />
     </>
   );
 };

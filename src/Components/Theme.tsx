@@ -52,6 +52,7 @@ export const Colors = {
   darkGrey: '#C4C4C4',
   backgroudColor: '#E5E5E5',
   LightGreen: '2CC070',
+  MediumGray: '999999',
 };
 
 export const Images = {
