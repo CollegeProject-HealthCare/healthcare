@@ -28,11 +28,14 @@ const Profile = () => {
             alignSelf: 'center',
           }}>
           {'ss' === undefined ? (
-            <Image source={Images.AppLogo} style={{ width: setWidth(40), height: setHeight(18) }} />
+            <Image
+              source={Images.handymanImg}
+              style={{ width: setWidth(4), height: setHeight(10) }}
+            />
           ) : (
             <Image
-              source={Images.appLogo}
-              style={{ width: setWidth(40), height: setHeight(18) }}
+              source={Images.handymanImg}
+              style={{ width: setWidth(30), height: setHeight(15) }}
               resizeMode={'cover'}
             />
           )}
@@ -40,27 +43,34 @@ const Profile = () => {
         <Separator height={25} />
         <View style={[styles.card, styles.shadow]}>
           <View style={{ alignItems: 'center' }}>
-            <Text style={{ color: Colors.buttonGreen, fontSize: 25 }}>Pritom Rahaman</Text>
+            <Text style={{ color: Colors.buttonGreen, fontSize: 25, fontWeight: 'bold' }}>
+              Pritom Rahaman
+            </Text>
             <Separator height={10} />
-            <Text style={{ color: Colors.buttonGreen, fontSize: 18 }}> +91 8900920011</Text>
+            <Text style={{ color: Colors.buttonGreen, fontSize: 18, fontWeight: 'bold' }}>
+              {' '}
+              +91 8900920011
+            </Text>
             <Separator height={10} />
-            <Text style={{ color: Colors.buttonGreen, fontSize: 20 }}>Male , 45 </Text>
+            <Text style={{ color: Colors.buttonGreen, fontSize: 20, fontWeight: 'bold' }}>
+              Male , 45{' '}
+            </Text>
           </View>
         </View>
         <View
           style={{
-            padding: 20,
+            padding: 35,
           }}>
           <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
             <FontAwesome5 name='edit' size={35} color={Colors.buttonGreen} />
             <Text style={styles.textStyle}>Edit Details</Text>
           </TouchableOpacity>
-          <Separator height={25} />
+          <Separator height={40} />
           <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
             <FontAwesome5 name='cog' size={35} color={Colors.buttonGreen} />
             <Text style={styles.textStyle}>Settings</Text>
           </TouchableOpacity>
-          <Separator height={25} />
+          <Separator height={40} />
           <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Entypo name='log-out' size={35} color={Colors.buttonGreen} />
             <Text style={styles.textStyle}>Logout</Text>

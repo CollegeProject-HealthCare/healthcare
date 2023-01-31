@@ -8,6 +8,7 @@ import Navigation from './src/Navigation/Index';
 import Home from './src/Screen/App/Home/home';
 import Profile from './src/Screen/App/Profile/profle';
 import Profle from './src/Screen/App/Profile/profle';
+import Settings from './src/Screen/App/Setting/Setting';
 import LogIn from './src/Screen/AuthPage/LogIn';
 import OtpVerification from './src/Screen/AuthPage/OtpVerification';
 import Accelerometer from './src/Sensors/Accelerometer';
@@ -35,6 +36,7 @@ const App = () => {
       {/* <OtpVerification /> */}
       {/* <Home /> */}
       <Profile />
+      {/* <Settings /> */}
     </>
   );
 };
