@@ -6,6 +6,7 @@ import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
 import Home from './src/Screen/App/Home/home';
+import ReceiverDetails, { Receiver } from './src/Screen/App/Home/ReceiverDetails';
 import EditDetails from './src/Screen/App/Profile/EditDetails';
 import Profile from './src/Screen/App/Profile/profle';
 import Profle from './src/Screen/App/Profile/profle';
@@ -38,7 +39,8 @@ const App = () => {
       {/* <Home /> */}
       {/* <Profile /> */}
       {/* <Settings /> */}
-      <EditDetails />
+      {/* <EditDetails /> */}
+      <ReceiverDetails />
     </>
   );
 };
