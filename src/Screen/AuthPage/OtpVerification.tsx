@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { Button } from '../../Components/Button';
 import Input from '../../Components/Input';
 import Separator from '../../Components/Separator';
@@ -7,6 +9,7 @@ import { Colors, setHeight, setWidth, Images, Fonts } from '../../Components/The
 import VerificationField from '../../Components/Verification';
 
 const OtpVerification = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Separator height={setHeight(1)} />
@@ -42,6 +45,7 @@ const OtpVerification = () => {
         color={Colors.buttonGreen}
         textColor={Colors.white}
         textFontSize={setHeight(2.3)}
+        onPress={() => navigation.navigate('Root')}
       />
     </View>
   );

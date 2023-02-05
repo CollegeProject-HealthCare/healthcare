@@ -9,14 +9,19 @@ setUpdateIntervalForType(SensorTypes.gyroscope, 400); // defaults to 100ms
 const Gyroscope = () => {
   const [gyroscopeData, setGyroscopeData] = useState<number>(0);
 
-  gyroscope.pipe(map(({ x, y, z }) => x + y + z)).subscribe(
-    speed => {
-      console.log(speed), setGyroscopeData(speed);
-    },
-    error => {
-      console.log('The sensor is not available');
-    },
-  );
+  gyroscope
+    .pipe(
+      map(({ x, y, z }) => x + y + z),
+      filter(speed => speed > 1),
+    )
+    .subscribe(
+      speed => {
+        console.log(speed), setGyroscopeData(speed);
+      },
+      error => {
+        console.log('The sensor is not available');
+      },
+    );
   return (
     <>
       <Input

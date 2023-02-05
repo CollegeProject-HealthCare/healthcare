@@ -1,44 +1,83 @@
-import React, { useContext } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { AuthContext, ctx } from '../Constants/Context';
-import SpalashScreen from '../Screen/SpalashScreen/SpalashScreen';
-import LogIn from '../Screen/AuthPage/LogIn';
-import home from '../Screen/App/Home/home';
+import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-//Screens
+import { Colors, setHeight } from '../Components/Theme';
+import { RootStackParamList, RootTabParamList } from './types';
 
-const Stack = createStackNavigator();
+import Home from '../Screen/App/Home/home';
+import ReceiverDetails from '../Screen/App/ReceiverDetails/ReceiverDetails';
+import Profile from '../Screen/App/Profile/profle';
+import LoginSignupScreen from '../Screen/AuthPage/LogIn';
+import OtpVerification from '../Screen/AuthPage/OtpVerification';
 
-/**
- * Screens For Authentications
- */
-const AuthStack = () => (
-  <Stack.Navigator initialRouteName='Login' screenOptions={{ header: () => null }}>
-    <Stack.Screen name='LoginIn' component={LogIn} options={{ header: () => null }} />
-  </Stack.Navigator>
-);
-
-// const AppPage = createStackNavigator();
-
-const AppPage = () => (
-  <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Home'>
-    <Stack.Screen name='Home' component={home} />
-  </Stack.Navigator>
-);
 export default function Navigation() {
-  const { State } = useContext<ctx>(AuthContext);
-
   return (
     <NavigationContainer>
-      {State.isLoadingComplete === true ? (
-        <SpalashScreen />
-      ) : State.userToken === null ? (
-        <AuthStack />
-      ) : (
-        <AppPage />
-      )}
+      <RootNavigator />
+    </NavigationContainer>
+  );
+}
+
+function RootNavigator() {
+  const Stack = createNativeStackNavigator<RootStackParamList>();
+  console.log(() => {});
+
+  return (
+    <Stack.Navigator
+      initialRouteName='LoginSignupScreen'
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
+      <Stack.Screen name='OtpVerification' component={OtpVerification} />
+      {/* <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} /> */}
+    </Stack.Navigator>
+  );
+}
+
+function BottomTabNavigator() {
+  const BottomTab = createBottomTabNavigator<RootTabParamList>();
+  return (
+    <NavigationContainer>
+      <BottomTab.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: Colors.buttonGreen,
+          tabBarShowLabel: false,
+        }}>
+        <BottomTab.Screen
+          name='Home'
+          component={Home}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => <Entypo name='home' size={setHeight(4)} color={color} />,
+          }}
+        />
+        <BottomTab.Screen
+          name='Notification'
+          component={ReceiverDetails}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => (
+              <FontAwesome5 name='phone-square' size={setHeight(4)} color={color} />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          name='Profile'
+          component={Profile}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => <Entypo name='user' size={setHeight(4)} color={color} />,
+          }}
+        />
+      </BottomTab.Navigator>
     </NavigationContainer>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   Image,
   KeyboardAvoidingView,
@@ -15,6 +16,7 @@ import Separator from '../../Components/Separator';
 import { Colors, setWidth, setHeight, Images, Fonts } from '../../Components/Theme';
 
 const NumberVerification = () => {
+  const navigation = useNavigation();
   const [mobileNumber, setmobileNumber] = useState('');
   const [isValidNumberFlag, setValidNumberFlag] = useState<Boolean>(false);
 
@@ -68,6 +70,7 @@ const NumberVerification = () => {
         color={Colors.buttonGreen}
         textColor={Colors.white}
         textFontSize={setHeight(2.3)}
+        onPress={() => navigation.navigate('OtpVerification')}
       />
     </>
   );
