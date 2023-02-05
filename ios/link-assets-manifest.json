@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/Assets/fonts/AbrilFatface-Regular.ttf",
+      "sha1": "545553bf8733c6edc2846ba1b420f19e4a6ff2de"
+    },
+    {
       "path": "src/Assets/fonts/DMSans-Regular.ttf",
       "sha1": "f1cf9ed15e1ec1db951c401233655dbbd304c732"
     },

@@ -17,6 +17,7 @@
 		E8899C458D514ECAB15D2911 /* Sevillana-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBC08AE6C1DC4613A2AF341A /* Sevillana-Regular.ttf */; };
 		5B3C0A81FC0646B4A9025696 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9755A1A330D643568B9C2F4B /* DMSans-Regular.ttf */; };
 		D01E20455D604E299EA3F875 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DC17C064BD4D20BA13A066 /* Poppins-Black.ttf */; };
+		C4052A9ED2DD4315B932DCDB /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4310D73B4C14DE6845D6E24 /* AbrilFatface-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		EBC08AE6C1DC4613A2AF341A /* Sevillana-Regular.ttf */ = {isa = PBXFileReference; name = "Sevillana-Regular.ttf"; path = "../src/Assets/fonts/Sevillana-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		9755A1A330D643568B9C2F4B /* DMSans-Regular.ttf */ = {isa = PBXFileReference; name = "DMSans-Regular.ttf"; path = "../src/Assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		D7DC17C064BD4D20BA13A066 /* Poppins-Black.ttf */ = {isa = PBXFileReference; name = "Poppins-Black.ttf"; path = "../src/Assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F4310D73B4C14DE6845D6E24 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; name = "AbrilFatface-Regular.ttf"; path = "../src/Assets/fonts/AbrilFatface-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				EBC08AE6C1DC4613A2AF341A /* Sevillana-Regular.ttf */,
 				9755A1A330D643568B9C2F4B /* DMSans-Regular.ttf */,
 				D7DC17C064BD4D20BA13A066 /* Poppins-Black.ttf */,
+				F4310D73B4C14DE6845D6E24 /* AbrilFatface-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				E8899C458D514ECAB15D2911 /* Sevillana-Regular.ttf in Resources */,
 				5B3C0A81FC0646B4A9025696 /* DMSans-Regular.ttf in Resources */,
 				D01E20455D604E299EA3F875 /* Poppins-Black.ttf in Resources */,
+				C4052A9ED2DD4315B932DCDB /* AbrilFatface-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,11 @@ import { AuthContext } from './src/Constants/Context';
 
 import Navigation from './src/Navigation/Index';
 import Home from './src/Screen/App/Home/home';
+import ReceiverDetails, { Receiver } from './src/Screen/App/Home/ReceiverDetails';
+import EditDetails from './src/Screen/App/Profile/EditDetails';
+import Profile from './src/Screen/App/Profile/profle';
+import Profle from './src/Screen/App/Profile/profle';
+import Settings from './src/Screen/App/Setting/Setting';
 import LogIn from './src/Screen/AuthPage/LogIn';
 import OtpVerification from './src/Screen/AuthPage/OtpVerification';
 import Accelerometer from './src/Sensors/Accelerometer';
@@ -31,8 +36,11 @@ const App = () => {
       <Gyroscope /> */}
       {/* <LogIn /> */}
       {/* <OtpVerification /> */}
-      <Home />
-      {/* <NewApp /> */}
+      {/* <Home /> */}
+      {/* <Profile /> */}
+      {/* <Settings /> */}
+      {/* <EditDetails /> */}
+      <ReceiverDetails />
     </>
   );
 };
