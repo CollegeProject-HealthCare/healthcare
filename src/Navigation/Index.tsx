@@ -25,17 +25,16 @@ export default function Navigation() {
 
 function RootNavigator() {
   const Stack = createNativeStackNavigator<RootStackParamList>();
-  console.log(() => {});
 
   return (
     <Stack.Navigator
-      initialRouteName='LoginSignupScreen'
+      initialRouteName='Root'
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
-      <Stack.Screen name='OtpVerification' component={OtpVerification} />
-      {/* <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} /> */}
+      {/* <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
+      <Stack.Screen name='OtpVerification' component={OtpVerification} /> */}
+      <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -43,41 +42,39 @@ function RootNavigator() {
 function BottomTabNavigator() {
   const BottomTab = createBottomTabNavigator<RootTabParamList>();
   return (
-    <NavigationContainer>
-      <BottomTab.Navigator
-        initialRouteName='Home'
-        screenOptions={{
-          headerShown: false,
-          tabBarActiveTintColor: Colors.buttonGreen,
-          tabBarShowLabel: false,
-        }}>
-        <BottomTab.Screen
-          name='Home'
-          component={Home}
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color }) => <Entypo name='home' size={setHeight(4)} color={color} />,
-          }}
-        />
-        <BottomTab.Screen
-          name='Notification'
-          component={ReceiverDetails}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => (
-              <FontAwesome5 name='phone-square' size={setHeight(4)} color={color} />
-            ),
-          }}
-        />
-        <BottomTab.Screen
-          name='Profile'
-          component={Profile}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => <Entypo name='user' size={setHeight(4)} color={color} />,
-          }}
-        />
-      </BottomTab.Navigator>
-    </NavigationContainer>
+    <BottomTab.Navigator
+      initialRouteName='Home'
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: Colors.buttonGreen,
+        tabBarShowLabel: false,
+      }}>
+      <BottomTab.Screen
+        name='Home'
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => <Entypo name='home' size={setHeight(4)} color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name='Notification'
+        component={ReceiverDetails}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name='phone-square' size={setHeight(4)} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name='Profile'
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => <Entypo name='user' size={setHeight(4)} color={color} />,
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }
