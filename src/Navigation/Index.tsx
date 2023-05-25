@@ -14,6 +14,8 @@ import ReceiverDetails from '../Screen/App/ReceiverDetails/ReceiverDetails';
 import Profile from '../Screen/App/Profile/profle';
 import LoginSignupScreen from '../Screen/AuthPage/LogIn';
 import OtpVerification from '../Screen/AuthPage/OtpVerification';
+import ReceiversForm from '../Screen/App/ReceiverDetails/ReceiversForm';
+import Settings from '../Screen/App/Setting/Setting';
 
 export default function Navigation() {
   return (
@@ -35,6 +37,8 @@ function RootNavigator() {
       {/* <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
       <Stack.Screen name='OtpVerification' component={OtpVerification} /> */}
       <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name='ReceiversForm' component={ReceiversForm} />
+      <Stack.Screen name='Settings' component={Settings} />
     </Stack.Navigator>
   );
 }
