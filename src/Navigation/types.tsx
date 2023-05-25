@@ -13,6 +13,8 @@ export type RootStackParamList = {
   LoginSignupScreen: undefined;
   OtpVerification: undefined;
   Home: undefined;
+  ReceiversForm: undefined;
+  Settings: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
