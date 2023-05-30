@@ -8,8 +8,7 @@ import {
 } from 'react-native-confirmation-code-field';
 import { Colors } from './Theme';
 
-const VerificationField = () => {
-  const [value, setValue] = useState('');
+const VerificationField = ({ value, setValue }: any) => {
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,

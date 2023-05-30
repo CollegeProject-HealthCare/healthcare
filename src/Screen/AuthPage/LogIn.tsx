@@ -14,6 +14,7 @@ import {
 import { Button } from '../../Components/Button';
 import Separator from '../../Components/Separator';
 import { Colors, setWidth, setHeight, Images, Fonts } from '../../Components/Theme';
+import { generateOtpAPI } from '../../Services/auth';
 
 const NumberVerification = () => {
   const navigation = useNavigation();
@@ -33,6 +34,19 @@ const NumberVerification = () => {
     if (res === true) {
       setmobileNumber(text);
     }
+  }
+
+  /**onPressCheck is navigating the user to OtpVerification page by checking the
+   * correct format and length of a number
+   */
+
+  function onPressCheck() {
+    (isValidNumberFlag === true && mobileNumber.length === 10 ? generateOtpAPI(mobileNumber) : null)
+      ? navigation.navigate('OtpVerification', {
+          mobileNumber,
+        })
+      : // : notifyMessage('Enter Your Correct Phone Number');
+        console.log('first');
   }
 
   return (
@@ -70,7 +84,7 @@ const NumberVerification = () => {
         color={Colors.buttonGreen}
         textColor={Colors.white}
         textFontSize={setHeight(2.3)}
-        onPress={() => navigation.navigate('OtpVerification')}
+        onPress={onPressCheck}
       />
     </>
   );

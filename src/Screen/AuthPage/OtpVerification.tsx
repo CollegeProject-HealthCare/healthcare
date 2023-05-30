@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Button } from '../../Components/Button';
 import Input from '../../Components/Input';
 import Separator from '../../Components/Separator';
 import { Colors, setHeight, setWidth, Images, Fonts } from '../../Components/Theme';
 import VerificationField from '../../Components/Verification';
+import { useAppDispatch } from '../../redux/App/hooks';
+import { validateOtp } from '../../redux/features/authState/authSlice';
+import { ProfileScreenRouteProp } from '../../Navigation/types';
 
 const OtpVerification = () => {
+  const [otp, setOtp] = useState('');
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const route = useRoute<ProfileScreenRouteProp>();
+  const { mobileNumber } = route.params;
   return (
     <View style={styles.container}>
       <Separator height={setHeight(1)} />
       <Image source={Images.appLogo} style={styles.logo1} />
-      <Text style={styles.primaryText}>Enter Your Mobile Number</Text>
+      <Text style={styles.primaryText}>Otp Sent To Mobile Number</Text>
       <Separator height={setHeight(1)} />
       <Input
         width={setWidth(75)}
         height={setHeight(6)}
         color={Colors.DEFAULT_GREY}
-        editable={true}
+        editable={false}
         leftImage={Images.IndianFlag}
-        value={'00000000000'}
+        value={mobileNumber}
       />
       <Separator height={setHeight(2)} />
       <View style={styles.otpBox}>
         <Text style={styles.otpText}>OTP</Text>
-        <VerificationField />
+        <VerificationField value={otp} setValue={setOtp} />
       </View>
       <Separator height={setHeight(0.5)} />
       <View style={styles.otpResend}>
@@ -45,7 +52,7 @@ const OtpVerification = () => {
         color={Colors.buttonGreen}
         textColor={Colors.white}
         textFontSize={setHeight(2.3)}
-        onPress={() => navigation.navigate('Root')}
+        onPress={() => dispatch(validateOtp({ mobileNumber, otp }))}
       />
     </View>
   );

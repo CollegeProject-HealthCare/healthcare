@@ -1,9 +1,10 @@
+// import { AUTH_API } from './Url';
 import { AUTH_API } from './Url';
 
 /**generateOtpAPI is generating OTP for the handyman */
 export const generateOtpAPI = async (mobileNumber: string) => {
   try {
-    const response = await fetch(`${AUTH_API}/auth/handymanOtp/generate-otp`, {
+    const response = await fetch(`${AUTH_API}/auth/userOtp/generate-otp`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -25,7 +26,7 @@ export const generateOtpAPI = async (mobileNumber: string) => {
 /**validateOtp is generating token for the handyman */
 export const validateOtpAPI = async (mobileNumber: string, otp: string) => {
   try {
-    const response = await fetch(`${AUTH_API}/auth/handymanOtp/handymanlogin`, {
+    const response = await fetch(`${AUTH_API}/auth/userOtp/userlogin`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

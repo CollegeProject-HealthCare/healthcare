@@ -1,38 +1,22 @@
 import React from 'react';
-import { StatusBar, useColorScheme, View, Text, ActivityIndicator } from 'react-native';
-import AppState from './src/AppState/AppState';
-import { Colors } from './src/Components/Theme';
-import { AuthContext } from './src/Constants/Context';
-
+import { useColorScheme } from 'react-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import Navigation from './src/Navigation/Index';
-import Home from './src/Screen/App/Home/home';
-import ReceiverDetails, { Receiver } from './src/Screen/App/ReceiverDetails/ReceiverDetails';
-import EditDetails from './src/Screen/App/Profile/EditDetails';
-import Profile from './src/Screen/App/Profile/profle';
-import Profle from './src/Screen/App/Profile/profle';
-import Settings from './src/Screen/App/Setting/Setting';
-import LogIn from './src/Screen/AuthPage/LogIn';
-import OtpVerification from './src/Screen/AuthPage/OtpVerification';
-import Accelerometer from './src/Sensors/Accelerometer';
-import Gyroscope from './src/Sensors/Gyroscope';
+
+import store from './src/redux/App/store';
+import { persistor } from './src/redux/App/store';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const { State, Dispatchers } = AppState();
-
-  if (State.isLoadingComplete) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size='large' color='#35B2E6' />
-        <Text>Loading.....</Text>
-      </View>
-    );
-  }
-
   return (
     <>
-      <Navigation />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Navigation />
+        </PersistGate>
+      </Provider>
     </>
   );
 };

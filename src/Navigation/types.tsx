@@ -1,6 +1,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native';
 
 declare global {
   namespace ReactNavigation {
@@ -11,14 +12,17 @@ declare global {
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   LoginSignupScreen: undefined;
-  OtpVerification: undefined;
+  OtpVerification: { mobileNumber: string };
   Home: undefined;
+  ReceiverDetails: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,
   Screen
 >;
+
+export type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'OtpVerification'>;
 
 export type RootTabParamList = {
   Home: undefined;

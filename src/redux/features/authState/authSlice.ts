@@ -8,10 +8,10 @@ type authInitialStateType = {
   error: string;
 };
 
-type otpVerification = {
+interface otpVerification {
   mobileNumber: string;
   otp: string;
-};
+}
 
 const initialState: authInitialStateType = {
   userToken: null,
@@ -21,12 +21,10 @@ const initialState: authInitialStateType = {
 };
 
 //Generate pending fulfilled and rejected action type
-export const validateOtp = createAsyncThunk(
-  'user/fetchUser',
-  async ({ mobileNumber, otp }: otpVerification) => {
-    return await validateOtpAPI(mobileNumber, otp);
-  },
-);
+export const validateOtp = createAsyncThunk('user/fetchUser', async (args: otpVerification) => {
+  const { mobileNumber, otp } = args;
+  return await validateOtpAPI(mobileNumber, otp);
+});
 
 const authSlice = createSlice({
   name: 'user',
@@ -37,12 +35,18 @@ const authSlice = createSlice({
       state.loading = true;
     }),
       builder.addCase(validateOtp.fulfilled, (state, action: PayloadAction<any>) => {
-        (state.loading = false), (state.userToken = action.payload), (state.error = '');
+        (state.loading = false),
+          (state.userToken = action.payload.user.token),
+          (state.userProfile = action.payload.user.user),
+          (state.error = '');
       }),
       builder.addCase(validateOtp.rejected, (state, action) => {
         (state.loading = false),
           (state.userToken = null),
+          (state.userProfile = null),
           (state.error = action.error.message || 'something went wrong');
       });
   },
 });
+
+export default authSlice.reducer;

@@ -14,6 +14,7 @@ import ReceiverDetails from '../Screen/App/ReceiverDetails/ReceiverDetails';
 import Profile from '../Screen/App/Profile/profle';
 import LoginSignupScreen from '../Screen/AuthPage/LogIn';
 import OtpVerification from '../Screen/AuthPage/OtpVerification';
+import { useAppSelector } from '../redux/App/hooks';
 
 export default function Navigation() {
   return (
@@ -24,17 +25,24 @@ export default function Navigation() {
 }
 
 function RootNavigator() {
+  const authToken = useAppSelector(state => state.auth.userToken);
+  console.log(authToken);
   const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
     <Stack.Navigator
-      initialRouteName='Root'
+      initialRouteName='LoginSignupScreen'
       screenOptions={{
         headerShown: false,
       }}>
-      {/* <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
-      <Stack.Screen name='OtpVerification' component={OtpVerification} /> */}
-      <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} />
+      {authToken === null ? (
+        <>
+          <Stack.Screen name='LoginSignupScreen' component={LoginSignupScreen} />
+          <Stack.Screen name='OtpVerification' component={OtpVerification} />
+        </>
+      ) : (
+        <Stack.Screen name='Root' component={BottomTabNavigator} options={{ headerShown: false }} />
+      )}
     </Stack.Navigator>
   );
 }
