@@ -1,12 +1,22 @@
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+  ImagePickerIOS,
+} from 'react-native';
 import React from 'react';
 import Header from '../../../Components/Header';
 import { Colors, Fonts, Images, setHeight, setWidth } from '../../../Components/Theme';
 import Separator from '../../../Components/Separator';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
+  const navigation = useNavigation();
   return (
     <>
       <View
@@ -66,7 +76,9 @@ const Profile = () => {
             <Text style={styles.textStyle}>Edit Details</Text>
           </TouchableOpacity>
           <Separator height={40} />
-          <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            style={{ flexDirection: 'row', alignItems: 'center' }}
+            onPress={() => navigation.navigate('Settings')}>
             <FontAwesome5 name='cog' size={35} color={Colors.buttonGreen} />
             <Text style={styles.textStyle}>Settings</Text>
           </TouchableOpacity>
